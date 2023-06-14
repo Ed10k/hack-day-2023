@@ -1,8 +1,8 @@
 #import statements
 import openai
 import os 
-import setup
 import random
+import boto3
 
 
 ##########################
@@ -21,15 +21,29 @@ def keywordSearch(keyword, caseDescriptions):
 # caseDescriptions = ["Testing", "no testing", "bee"]
 # keyword = "tes"
 
-class Casey:
-    def __init__(self):
-        self.model = "gpt-3.5-turbo"
-    
-    openai.api_key = os.getenv(setup.AIAPIKEY)
 
-    def getresponse(inputDesc):
+
+#Aws stuff 
+s3_client = boto3.client('s3')
+
+
+class Casey:
+    def __init__(self, apikey):
+        self.model = "gpt-3.5-turbo"
+        self.apiKey = apikey
+        api = openai_key = os.getenv(apikey)
+    
+
+    def getdescription(self,content):
         response = openai.Completion.create(
-            model = Casey.self.model
+            model = self.model,
+            messages = [{"role" : "user", "contetnt": content}],
+            function = [
+                {
+
+                }
+            ]
+
             
         )
         
