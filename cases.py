@@ -1,5 +1,6 @@
-caseDescriptions = ["Case description 1", "Case description 2", "Case description 3"]
-keyword = "keyword"
+##########################
+# Keyword Search Function
+##########################
 def keywordSearch(keyword, caseDescriptions):
     similarCases = []
     # Iterate through each case description
@@ -9,3 +10,6 @@ def keywordSearch(keyword, caseDescriptions):
             similarCases.append(caseDescription)
     return similarCases
 
+
+# caseDescriptions = ["Testing", "no testing", "bee"]
+# keyword = "tes"
